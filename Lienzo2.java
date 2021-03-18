@@ -87,12 +87,7 @@ public class Lienzo2 extends JPanel implements MouseListener {
         }
 
 
-        for(int i = 0; i < 80*300; i++) { // Default Height of cmd is 300 and Default width is 80
-            System.out.print("\b"); // Prints a backspace
-        }
-        for(int i = 0 ; i < vectorNodos.size(); i++ ) {
-            System.out.print("v"+(i+1));
-        }
+     
 
     }
 

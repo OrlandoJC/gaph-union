@@ -12,16 +12,7 @@ public class ProgramaGrafo {
 
   public static void main(String[] args) {
     JFrame frame = new JFrame("NUEVA VENTANA");
-    JPanel panelDificultad = new JPanel();
-
-    JPanel entreePanel = new JPanel();
-    JPanel modo = new JPanel();
-
-    final ButtonGroup entreeGroup = new ButtonGroup();
-
-    final JRadioButton radioButton1;
-    final JRadioButton radioButton2;
-
+  
     // frame.setResizable(false);
     frame.setLocation(500, 400);
 
@@ -32,32 +23,38 @@ public class ProgramaGrafo {
 
 
 
-    buttonA.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          JFrame ventana = new JFrame("grafo");
+
+   buttonA.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){  
+         JFrame ventana = new JFrame("grafo");
           ventana.add(new Lienzo());
           ventana.setSize(800, 900);
+          ventana.setLocation(600, 600);
           ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-          ventana.setVisible(true);
-        }
-      }
-    );
+          ventana.setVisible(true);   
+    }  
+    });  
 
-    buttonB.addActionListener( new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          JFrame ventana = new JFrame("grafo2");
+
+    
+   buttonB.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){  
+         JFrame ventana = new JFrame("grafo");
           ventana.add(new Lienzo2());
-          ventana.setSize(800, 800);
+          ventana.setSize(800, 900);
+          ventana.setLocation(600, 600);
           ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-          ventana.setVisible(true);
-        }
-      }
-    );
+          ventana.setVisible(true);   
+    }  
+    });  
+   
+  
 
     
     frame.add(buttonA);
     frame.add(buttonB);
+
+    frame.setLocation(600, 600);
 
 
     frame.setLayout(new GridLayout( 3,  1, 10, 10));
