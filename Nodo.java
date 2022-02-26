@@ -4,13 +4,9 @@ import javax.swing.*;
 
 public class Nodo {
     private int x, y, r;
-
     boolean seleccionado = false;
     boolean radio = false;
-
     public  static int d;
-
-
 
     public Nodo(int x, int y) {
         this.x = x;
@@ -30,21 +26,15 @@ public class Nodo {
         this.seleccionado = e;
     }
 
-
     public void pintar(Graphics g){
 
-
-       // g.setColor(Color.RED);
         g.fillArc( this.x-10, this.y-10, 20, 20,  0, 360);
 
         if(radio) {
-              g.setColor(Color.BLUE);
-              g.drawOval(this.x - d/2, this.y - d/2, d, d);
+            g.setColor(Color.BLUE);
+            g.drawOval(this.x - d/2, this.y - d/2, d, d);
         }
-      
-
     }
-
 
     public static int getD() {
         return d;
@@ -58,8 +48,6 @@ public class Nodo {
         this.x = x;
     }
 
-
-
     public int getY(){
         return y;
     }
@@ -67,5 +55,4 @@ public class Nodo {
     public void setY(int y) {
         this.y = y;
     }
-
 }

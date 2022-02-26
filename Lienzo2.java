@@ -8,11 +8,8 @@ import java.awt.Rectangle;
 import java.util.Vector;
 import java.awt.*;
 
-
 public class Lienzo2 extends JPanel implements MouseListener {
-
     private Vector<Nodo> vectorNodos;
-
     private Vector<Enlace> vectorEnlaces;
     private Point p1, p2;
 
@@ -22,28 +19,21 @@ public class Lienzo2 extends JPanel implements MouseListener {
         this.addMouseListener(this);
     }
 
-
     public void paint(Graphics g) {
-
         for(Nodo nodos: vectorNodos) {
-            if(nodos.seleccionado) {
+            if(nodos.seleccionado)
                 g.setColor(Color.GREEN);
-            }else {
-                 g.setColor(Color.RED);
-            }
+            else 
+                g.setColor(Color.RED);
+
             nodos.pintar(g);
         }
         
-
-
         g.setColor(Color.BLACK);
 
-        for (Enlace enlace : vectorEnlaces){
-            
+        for (Enlace enlace : vectorEnlaces)
             enlace.pintar(g);
-        }
     }
-
 
     public int estanSobrespuestos(int x1, int y1, int x2,  int y2, int r1, int r2){
         int distSq = (x1 - x2) * (x1 - x2) + 
@@ -57,17 +47,13 @@ public class Lienzo2 extends JPanel implements MouseListener {
             return 0; 
     }
 
-
     public void mouseClicked(MouseEvent e) {
         if(e.getButton() == MouseEvent.BUTTON1) {
             this.vectorNodos.add(new Nodo(e.getX(), e.getY(), 80));
             repaint();
         }
 
-        if(vectorNodos.size() > 1) {
-
-           
-               
+        if(vectorNodos.size() > 1) {   
             Nodo nodoActual = vectorNodos.lastElement();
 
             p1 = new Point(nodoActual.getX(), nodoActual.getY());
@@ -79,31 +65,11 @@ public class Lienzo2 extends JPanel implements MouseListener {
                     p2 = new Point(vectorNodos.get(i).getX(), vectorNodos.get(i).getY());
                     this.vectorEnlaces.add(new Enlace(p1.x,p1.y,p2.x,p2.y));
                     repaint();
-                    
                 }
             }
-            p1= null;
-            p2=null;
+
+            p1 = null;
+            p2 = null;
         }
-
-
-     
-
-    }
-
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    public void mouseEntered (MouseEvent e) {
-
-    }
-
-    public void mouseExited(MouseEvent e) {
-
     }
 }

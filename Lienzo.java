@@ -10,9 +10,7 @@ import java.awt.*;
 
 
 public class Lienzo extends JPanel implements MouseListener {
-
     private Vector<Nodo> vectorNodos;
-
     private Vector<Enlace> vectorEnlaces;
     private Point p1, p2;
 
@@ -22,9 +20,7 @@ public class Lienzo extends JPanel implements MouseListener {
         this.addMouseListener(this);
     }
 
-
     public void paint(Graphics g) {
-
         for(Nodo nodos: vectorNodos) {
             if(nodos.seleccionado) {
                 g.setColor(Color.GREEN);
@@ -34,16 +30,12 @@ public class Lienzo extends JPanel implements MouseListener {
             nodos.pintar(g);
         }
         
-
-
         g.setColor(Color.BLACK);
 
-        for (Enlace enlace : vectorEnlaces){
-            
+        for (Enlace enlace : vectorEnlaces){    
             enlace.pintar(g);
         }
     }
-
 
     public void mouseClicked(MouseEvent e) {
         if(e.getButton() == MouseEvent.BUTTON1) {
@@ -55,40 +47,21 @@ public class Lienzo extends JPanel implements MouseListener {
             for (Nodo nodo : vectorNodos){
     
                 if (new Rectangle(nodo.getX() - Nodo.getD()/2, nodo.getY() - Nodo.getD()/2, Nodo.getD(),Nodo.getD()).contains(e.getPoint())){
-
                     if (p1 == null){
                         p1 = new Point(nodo.getX(), nodo.getY());
                         nodo.setPintado(true);
                         repaint();
-
                     }else{
                         nodo.setPintado(true);
-
                         p2 = new Point(nodo.getX(), nodo.getY());
-                        this.vectorEnlaces.add(new Enlace(p1.x,p1.y,p2.x,p2.y));
+                        this.vectorEnlaces.add(new Enlace(p1.x, p1.y, p2.x, p2.y));
                         repaint();
-                        p1= null;
-                        p2=null;
+                        p1 = null;
+                        p2 =null;
                     }
                 }
             }
         }
-
-    }
-
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    public void mouseEntered (MouseEvent e) {
-
-    }
-
-    public void mouseExited(MouseEvent e) {
 
     }
 }
